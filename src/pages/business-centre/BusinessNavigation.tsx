@@ -6,8 +6,8 @@ import { useAuth } from '@/context/AuthContext';
 import { IHLinkContact } from '@/lib/contact';
 import { ArrowRight, Building2, Mail, MapPin, Phone, LifeBuoy, FolderOpen, Send, ShieldCheck } from 'lucide-react';
 
-export const unitPaths = {academy:'/academy',fabrication:'/fabrication',compute:'/compute',digital_business:'/business-centre/digital-services',print:'/print'};
-const names = {academy:'IHLink Academy',fabrication:'3D & Fabrication Lab',compute:'IHLink AI & Compute',digital_business:'Digital Business Centre',print:'Print & Branding'};
+export const unitPaths = {business_centre:'',academy:'/academy',fabrication:'/fabrication',compute:'/compute',digital_business:'/business-centre/digital-services',print:'/print'};
+const names = {business_centre:'IHLink Business & Innovation Centre',academy:'IHLink Academy',fabrication:'3D & Fabrication Lab',compute:'IHLink AI & Compute',digital_business:'Digital Business Centre',print:'Print & Branding'};
 type Unit=keyof typeof unitPaths;
 
 export function BusinessNavigation({unit}:{unit:Unit}) {
