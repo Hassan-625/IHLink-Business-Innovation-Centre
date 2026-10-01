@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-type Unit = 'academy' | 'fabrication' | 'compute' | 'digital_business';
+type Unit = 'business_centre' | 'academy' | 'fabrication' | 'compute' | 'digital_business';
 type Guide = { title: string; body: string; steps: string[]; next: string; label: string };
 const guides: Record<string, Guide> = {
  requests: {title:'Prepare a request that can be reviewed',body:'Your request records the scope to be quoted. Include the required result, quantity, deadline and any constraints before the team reviews it.',steps:['Attach supporting files to the matching request.', 'Review the issued quote before accepting its scope.', 'Track changes here using the request number.'],next:'files',label:'Attach request files'},
@@ -18,9 +18,9 @@ const guides: Record<string, Guide> = {
  notifications: {title:'Keep track of updates for this service',body:'Notifications relate to your requests and activity on this platform. Open the relevant request or invoice when an update requires action.',steps:['Review new notices before marking them read.', 'Use the matching request number to follow up.', 'Contact support if an update is unclear.'],next:'requests',label:'Open your requests'},
  support: {title:'Give support the details needed to help',body:'Describe the issue and include its request, invoice or payment reference where applicable. Your ticket and staff response stay within this service workspace.',steps:['Choose a clear subject and explain what happened.', 'Include the expected result and relevant reference.', 'Keep passwords, one-time codes and full card details out of the message.'],next:'requests',label:'Find a request reference'},
 };
-const unitNames: Record<Unit,string> = {academy:'Academy',fabrication:'Fabrication',compute:'AI & Compute',digital_business:'Digital Business'};
+const unitNames: Record<Unit,string> = {business_centre:'Business & Innovation Centre',academy:'Academy',fabrication:'Fabrication',compute:'AI & Compute',digital_business:'Digital Business'};
 export function WorkspacePageGuide({unit,page,base}:{unit:Unit;page:string;base:string}) {
  const guide=guides[page];
  if(!guide)return null;
- return <section aria-label={`${unitNames[unit]} ${page} guidance`} className="mb-6 rounded-2xl border border-blue-100 bg-blue-50/50 p-5 print:hidden"><p className="text-xs font-semibold uppercase tracking-wide text-blue-700">{unitNames[unit]} · {page.replaceAll('_',' ')}</p><h2 className="mt-2 text-lg font-bold">{guide.title}</h2><p className="mt-2 max-w-4xl text-sm leading-relaxed text-slate-700">{guide.body}</p><ol className="mt-3 list-decimal space-y-1 pl-5 text-sm text-slate-700">{guide.steps.map(step=><li key={step}>{step}</li>)}</ol><Link className="mt-4 inline-block text-sm font-semibold text-blue-700 underline" to={`${base}/${guide.next}`}>{guide.label}</Link></section>;
+ return <section aria-label={`${unitNames[unit]} ${page} guidance`} className="mb-6 rounded-2xl border border-blue-100 bg-blue-50/50 p-5 print:hidden"><p className="text-xs font-semibold uppercase tracking-wide text-blue-700">{unitNames[unit]} · {page.replaceAll('_',' ')}</p><h2 className="mt-2 text-lg font-bold">{guide.title}</h2><p className="mt-2 max-w-4xl text-sm leading-relaxed text-slate-700">{guide.body}</p><ol className="mt-3 list-decimal space-y-1 pl-5 text-sm text-slate-700">{guide.steps.map(step=><li key={step}>{step}</li>)}</ol><Link className="mt-4 inline-flex items-center rounded-xl bg-blue-700 px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-blue-800" to={`${base}/${guide.next}`}>{guide.label}</Link></section>;
 }
