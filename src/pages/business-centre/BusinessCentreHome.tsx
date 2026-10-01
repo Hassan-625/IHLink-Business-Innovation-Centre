@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
+import { BusinessNavigation, BusinessFooter } from './BusinessNavigation';
 import { ManagedContentSections } from '@/components/ManagedContentSections';
 import { ArrowRight, Bot, Box, GraduationCap, Palette, Printer, FileText, ScanLine, Globe2, BadgeCheck, Layers3, BrainCircuit } from 'lucide-react';
 
@@ -21,7 +20,7 @@ const units=[
  {title:'Digital Business Centre',href:'https://ihlink-digital-business.vercel.app/business-centre/digital-services',icon:Palette,desc:'Documents, registrations and everyday business support.',image:'/images/business-centre/digital-business.jpg'},
 ];
 export function BusinessCentreHome(){
- return <div className="min-h-screen bg-white"><Header product="corporate"/>
+ return <div className="min-h-screen bg-white"><BusinessNavigation unit="business_centre"/>
  <main>
   <section className="relative overflow-hidden bg-gradient-to-br from-orange-50 via-white to-sky-50">
    <div className="max-w-[1440px] mx-auto px-6 lg:px-10 py-16 lg:py-24 grid lg:grid-cols-2 gap-12 items-center">
@@ -35,5 +34,5 @@ export function BusinessCentreHome(){
   <section className="max-w-[1440px] mx-auto px-6 lg:px-10 py-16"><div className="max-w-3xl"><p className="text-sm font-bold text-royal-600 uppercase tracking-wider">One ecosystem, many solutions</p><h2 className="mt-2 text-3xl lg:text-4xl font-extrabold">Business, skills and innovation in one connected experience</h2><p className="mt-3 text-muted">Explore each specialist unit. Each specialist unit now uses the shared IHLink account, customer workspace and internal operations workflow; provider-dependent services activate when their external integrations are configured.</p></div>
   <div className="mt-10 grid md:grid-cols-2 xl:grid-cols-3 gap-6">{units.map(({title,href,icon:Icon,desc,image})=><a key={title} href={href} className="group overflow-hidden rounded-2xl border border-border bg-white shadow-sm hover:shadow-lg transition-shadow"><div className="aspect-[16/9] bg-slate-100 overflow-hidden"><img src={image} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy"/></div><div className="p-6"><div className="flex items-start justify-between gap-4"><Icon className="w-8 h-8 text-royal-600"/><ArrowRight className="w-5 h-5 text-muted group-hover:translate-x-1 transition-transform"/></div><h3 className="mt-5 text-xl font-extrabold">{title}</h3><p className="mt-2 text-sm text-muted">{desc}</p></div></a>)}</div></section>
   <section className="border-y border-border bg-slate-50"><div className="max-w-[1440px] mx-auto px-6 lg:px-10 py-16"><p className="text-sm font-bold uppercase tracking-wider text-orange-600">What the centre does</p><h2 className="mt-2 text-3xl font-extrabold">Practical services you can request and track</h2><div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">{highlights.map(({title,desc,icon:Icon})=><div key={title} className="rounded-2xl border border-border bg-white p-6"><Icon className="h-7 w-7 text-royal-600"/><h3 className="mt-4 text-lg font-extrabold">{title}</h3><p className="mt-2 text-sm text-muted">{desc}</p></div>)}</div><div className="mt-10 rounded-3xl bg-white border border-border p-7"><div className="flex flex-wrap items-center justify-between gap-4"><div><p className="text-sm font-bold text-royal-600">Digital Business Centre</p><h3 className="mt-1 text-2xl font-extrabold">Everyday digital and document services</h3></div><a href="https://ihlink-digital-business.vercel.app/business-centre/digital-services" className="font-bold text-royal-600">Explore services <ArrowRight className="inline h-4 w-4"/></a></div><div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{digitalServices.map(x=><div key={x} className="flex items-center gap-3 rounded-xl bg-slate-50 p-3 text-sm font-semibold"><BadgeCheck className="h-4 w-4 text-emerald-600"/>{x}</div>)}</div></div></div></section><section className="bg-slate-50 border-y border-border"><div className="max-w-[1440px] mx-auto px-6 lg:px-10 py-14 grid md:grid-cols-4 gap-6">{['Individuals','Schools','Businesses','NGOs & Institutions'].map(x=><div key={x} className="rounded-2xl bg-white border border-border p-6"><h3 className="font-extrabold">{x}</h3><p className="mt-2 text-sm text-muted">Access relevant IHLink services through one connected customer relationship.</p></div>)}</div></section>
- <ManagedContentSections pageKey="business_centre"/></main><Footer/></div>
+ <ManagedContentSections pageKey="business_centre"/></main><BusinessFooter unit="business_centre"/></div>
 }
