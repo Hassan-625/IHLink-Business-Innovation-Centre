@@ -25,6 +25,10 @@ export default function App(){return <Routes>
 <Route path="/dashboard/:page" element={<ProtectedRoute product={unit} requireServiceAccess><BusinessPortal unit={unit}/></ProtectedRoute>}/>
 <Route path={prefix+'/dashboard'} element={<Navigate to="/dashboard" replace/>}/>
 <Route path={prefix+'/workspace'} element={<Navigate to="/dashboard" replace/>}/>
+<Route path="/support" element={<Navigate to="/dashboard/support" replace/>}/>
+<Route path="/profile" element={<Navigate to="/dashboard/profile" replace/>}/>
+<Route path="/account-security" element={<Navigate to="/dashboard/settings" replace/>}/>
+<Route path="/workspace" element={<Navigate to="/dashboard" replace/>}/>
 <Route path="/get-in-touch" element={<BusinessSupport unit={unit}/>}/>
 <Route path="/contact" element={<Navigate to="/get-in-touch" replace/>}/>
 <Route path="/access-denied" element={<BusinessAccessDenied unit={unit}/>}/>
